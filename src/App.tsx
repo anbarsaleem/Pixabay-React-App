@@ -13,15 +13,16 @@ function App() {
 
   return (
     <div
-      className={`${'grid grid-cols-3'} gap-4 m-4`}
+      className={`${'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4'} gap-4 m-4`}
     >
       {images.map((image) => (
         <div key = {image.id}>
           <img
             src = {image.webformatURL}
             alt = {image.tags}
+            className = "object-center"
           />
-          <p className = "text-center font-medium text-gray-700">
+          <p className = "text-center text-sm sm:text-base md:text-lg text-gray-700">
             {image.tags.split(',')[0]}
           </p>
         </div>
