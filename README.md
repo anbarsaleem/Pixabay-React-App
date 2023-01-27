@@ -1,3 +1,19 @@
+# Simple React App using an API 
+
+Create a photo gallery application using React and Tailwind CSS. The application should make use of the Pixabay API to retrieve and display images in equal sized cards in a 3x3 grid. The API key for the Pixabay API should be stored as an environment variable and accessed in the application.
+
+
+### Requirements:
+
+- Use Tailwind CSS for styling
+- Utilize the Pixabay API to retrieve and display images [pixabay API](https://pixabay.com/api/docs)
+- Store the Pixabay API key as an environment variable
+- Display images in a 3x3 grid layout with a small caption below each one
+- Use React for building the application
+- You will need to have an API key for Pixabay and use the env variables to keep it safe.
+- Make the app mobile responsive
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
