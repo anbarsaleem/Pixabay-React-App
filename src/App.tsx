@@ -12,21 +12,25 @@ function App() {
   }, []);
 
   return (
-    <div
-      className={`${'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4'} gap-4 m-4`}
-    >
-      {images.map((image) => (
-        <div key = {image.id}>
-          <img
-            src = {image.webformatURL}
-            alt = {image.tags}
-            className = "object-center"
-          />
-          <p className = "text-center text-sm sm:text-base md:text-lg text-gray-700">
-            {image.tags.split(',')[0]}
-          </p>
-        </div>
-      ))}
+    <div className= 'bg-slate-800 h-full border-y-2 border-y-slate-800'>
+      <h1 className='titles font-bold text-center border-y-4 border-slate-800 bottom-1 text-green-600'>Pixabay Gallery App</h1>
+      <h2 className='titles font-semibold text-center bottom-1  text-green-600'>By: Anbar Saleem</h2> 
+      <div
+        className={`${'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4'} gap-4 m-4 bg-slate-700`}
+      >
+        {images.map((image) => (
+          <div key = {image.id}>
+            <img
+              src = {image.webformatURL}
+              alt = {image.tags}
+              className = "object-center"
+            />
+            <p className = "text-center text-sm sm:text-base md:text-lg text-white">
+              {image.tags.split(',')[0]}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
