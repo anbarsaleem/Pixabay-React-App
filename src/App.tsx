@@ -12,23 +12,25 @@ function App() {
   }, []);
 
   return (
-    <div className= 'bg-slate-800 h-full border-y-2 border-y-slate-800'>
-      <h1 className='titles font-bold text-center border-y-4 border-slate-800 bottom-1 text-green-600'>Pixabay Gallery App</h1>
-      <h2 className='titles font-semibold text-center bottom-1  text-green-600'>By: Anbar Saleem</h2> 
+    <div className= 'bg-slate-900 h-full border-y-2 border-y-slate-900'>
+      <h1 className='titles font-bold text-center border-y-8 border-slate-900 bottom-1'>Pixabay Gallery App</h1>
+      <h2 className='titles font-semibold text-center'>By: Anbar Saleem</h2> 
+      <h3 className='text font-semibold text-center border-t-8 border-slate-900'>(hover over images for quick description)</h3>
       <div
-        className={`${'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4'} gap-4 m-4 bg-slate-700`}
+        className={`${'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4'} gap-4 m-6 p-2 bg-slate-800 rounded-md`}
       >
         {images.map((image) => (
           <div key = {image.id} className = 'flex p-2 md:p-4'>
-            <div className='self-center mx-auto col-span-1'>
+            <div className='relative self-center mx-auto col-span-1'>
+              <p className = "absolute flex justify-center items-center opacity-0 hover:opacity-100 peer inset-0 text-center font-extrabold text-4xl sm:text-base md:text-lg text-white">
+                {image.tags.split(',')[0]}
+              </p>
               <img
                 src = {image.webformatURL}
                 alt = {image.tags}
-                className = "h-32 w-full object-scale-down rounded-lg"
-              />
-              <p className = "text-center text-sm sm:text-base md:text-lg text-white">
-                {image.tags.split(',')[0]}
-              </p>
+                className = "h-32 w-full object-scale-down peer-hover:opacity-20 rounded-lg inset-0"
+              />  
+
             </div>
           </div>
         ))}

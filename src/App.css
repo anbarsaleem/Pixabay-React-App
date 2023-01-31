@@ -41,4 +41,12 @@
 
 .titles { 
   font-family: 'Proza Libre', sans-serif; 
+  font-size: x-large;
+  color:#b4786b
+}
+
+.text {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: medium;
+  color:white
 }
