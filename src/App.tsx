@@ -19,15 +19,17 @@ function App() {
         className={`${'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4'} gap-4 m-4 bg-slate-700`}
       >
         {images.map((image) => (
-          <div key = {image.id}>
-            <img
-              src = {image.webformatURL}
-              alt = {image.tags}
-              className = "object-center"
-            />
-            <p className = "text-center text-sm sm:text-base md:text-lg text-white">
-              {image.tags.split(',')[0]}
-            </p>
+          <div key = {image.id} className = 'flex p-2 md:p-4'>
+            <div className='self-center mx-auto col-span-1'>
+              <img
+                src = {image.webformatURL}
+                alt = {image.tags}
+                className = "h-32 w-full object-scale-down rounded-lg"
+              />
+              <p className = "text-center text-sm sm:text-base md:text-lg text-white">
+                {image.tags.split(',')[0]}
+              </p>
+            </div>
           </div>
         ))}
       </div>
