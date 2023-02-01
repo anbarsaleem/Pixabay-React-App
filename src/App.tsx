@@ -3,6 +3,11 @@ import axios from 'axios';
 import './App.css'
 import alts from './alt-for-images.json';
 
+//Image imports
+//Icons by adriansyah from flaticon
+import darkmode from './assets/darkmode.png';
+import lightmode from './assets/lightmode.png';
+
 //Defines the type for the alt object from alt-for-images.json
 interface altsType {
   [key: string]: string;
@@ -21,19 +26,34 @@ function App() {
       ).then((res) => setImages(res.data.hits));
     }, []);
 
-  
+  //State variable to set theme of app
+  const [theme, setTheme] = useState(true);
+
+  //Toggle function for app theme
+  function toggleTheme() {
+    setTheme(prevTheme => !prevTheme)
+  }
+
   return (
     // Body
-    <div className= 'bg-slate-900 h-full border-y-2 border-y-slate-900'>
+    <div className={`${theme ? 'dark' : 'light'} h-full border-y-2 border-y-slate-90`}>
 
-      {/* Title, subtitle, and basic instruction description */}
-      <h1 tabIndex = {0} className='titles font-bold text-center border-y-8 border-slate-900 bottom-1'>Pixabay Gallery App</h1>
-      <h2 tabIndex = {0} className='titles font-semibold text-center'>By: Anbar Saleem</h2> 
-      <h3 tabIndex = {0} className='text font-semibold text-center border-t-8 border-slate-900'>(hover over images for quick description)</h3>
+      <div className={`grid grid-cols-3 ${theme ? 'dark' : 'light'}`}>
+        <div></div>
+        <h1 tabIndex = {0} className={`${theme ? 'dark' : 'light'} titles text-xl font-bold text-center border-y-8 bottom-1`}>Pixabay Gallery App</h1>
+        <img onClick={toggleTheme}
+             className='h-10 w-full my-2 object-scale-down'
+             src={theme ? darkmode : lightmode}
+        />
+      </div>
+      
+      {/*Subtitle, and basic instruction description */}
+      <h2 tabIndex = {0} className='titles text-lg font-semibold text-center'>By: Anbar Saleem</h2> 
+      <h3 tabIndex = {0} className={`text font-semibold text-center border-t-8 ${theme ? 'dark' : 'light'}`}>(hover over images for quick description)</h3>
 
       {/* Reactive gallery grid for images */}
       <div
-        className={`${'grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4'} gap-4 m-6 p-2 bg-slate-800 rounded-md`}
+        className={`${theme ? 'dark-gallery' : 'light-gallery'} grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 m-6 p-2 rounded-md`}
       >
         {/* Sequentially displaying the images */}
         {images.map((image) => {
@@ -61,7 +81,7 @@ function App() {
               </div>
             </div>
           )})
-        };
+        }
       </div>
     </div>
   );

@@ -1,10 +1,13 @@
 /* Fonts grabbed from Google Fonts API */
 @import url('https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap');
 
+/* Tailwind imports */
+@tailwind base;
+@tailwind components;
+
 /* Title, Subtitle Styling */
 .titles { 
   font-family: 'Proza Libre', sans-serif; 
-  font-size: x-large;
   color:#b4786b
 }
 
@@ -12,5 +15,24 @@
 .text {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: medium;
-  color:white
 }
+
+/* Dark and Light Theme Styling using Tailwind Utilities*/
+/* Dark and Light Theme for Background and General Text */
+.dark {
+  @apply bg-slate-900 text-white  border-slate-900;
+}
+.light {
+  @apply bg-slate-50 text-black border-slate-50;
+}
+
+/* Dark and Light Styling for Gallery Grid */
+.dark-gallery {
+  @apply bg-slate-800
+}
+.light-gallery {
+  @apply bg-slate-300
+}
+
+
+@tailwind utilities;
