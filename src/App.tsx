@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css'
 import alts from './alt-for-images.json';
 
+import Card from './components/Card'
+
 //Image imports
 //Icons by adriansyah from flaticon
 import darkmode from './assets/darkmode.png';
@@ -16,7 +18,7 @@ interface altsType {
 function App() {
   //State variable to contain the images from the pixabay API
   const [images, setImages] = useState([] as any[]);
-  
+
   const API_KEY = "33167824-361d207c5e720e0f6b5e1d91d";
   
   //Effect hook to query Pixabay API for 9 Cat image hits and add to images
@@ -53,7 +55,7 @@ function App() {
 
       {/* Reactive gallery grid for images */}
       <div
-        className={`${theme ? 'dark-gallery' : 'light-gallery'} grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 m-6 p-2 rounded-md`}
+        className={`${theme ? 'dark-gallery' : 'light-gallery'} flex flex-wrap items-center justify-center h-auto gap-2 p-2 m-6 rounded-md`}
       >
         {/* Sequentially displaying the images */}
         {images.map((image) => {
@@ -65,20 +67,18 @@ function App() {
 
           /* Image displaying with tag appearing above only on hover of image */
           return (
-            <div key = {image.id} className = 'flex p-2 md:p-4'>
-              <div className='relative group self-center mx-auto col-span-1'>
-
-                {/* First tag associated with image from API becomes text to appear on hover */}
-                <img
-                  src = {image.webformatURL}
-                  alt = {alt}
-                  tabIndex={0}
-                  className = "h-32 w-full object-scale-down group-hover:opacity-20 peer focus:opacity-20 rounded-lg inset-0"
-                />  
-                <p className = "absolute flex justify-center items-center opacity-0 group-hover:opacity-100 peer-focus:opacity-100 inset-0 text-center font-extrabold text-4xl sm:text-base md:text-lg text-white">
-                  {image.tags.split(',')[0]}
-                </p>
-              </div>
+            <div key = {image.id} className = 'flex-wrap p-2 md:p-4'>
+                <div className='justify-items-center object-contain'>
+                  <Card
+                    title={image.tags.split(',')[0]}
+                    likes={image.likes}
+                    comments={image.comments}
+                    author={image.user}
+                    image={image.webformatURL}
+                    alt={alt}
+                    pageURL={image.pageURL}
+                  />
+                </div>
             </div>
           )})
         }
