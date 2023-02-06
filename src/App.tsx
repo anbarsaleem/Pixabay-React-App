@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css'
 import alts from './alt-for-images.json';
 
-import Card from './components/Card'
+import Card from './components/Card';
 
 //Image imports
 //Icons by adriansyah from flaticon
@@ -51,13 +51,13 @@ function App() {
       
       {/*Subtitle, and basic instruction description */}
       <h2 tabIndex = {0} className='titles text-lg font-semibold text-center'>By: Anbar Saleem</h2> 
-      <h3 tabIndex = {0} className={`text font-semibold text-center border-t-8 ${theme ? 'dark' : 'light'}`}>(hover over images for quick description)</h3>
+      <h3 tabIndex = {0} className={`text font-semibold text-center border-t-8 ${theme ? 'dark' : 'light'}`}>(click i for more info on each image)</h3>
 
       {/* Reactive gallery grid for images */}
       <div
         className={`${theme ? 'dark-gallery' : 'light-gallery'} flex flex-wrap items-center justify-center h-auto gap-2 p-2 m-6 rounded-md`}
       >
-        {/* Sequentially displaying the images */}
+        {/* Sequentially creating the image cards */}
         {images.map((image) => {
 
           //Grabs alt value from json file using image id as key
@@ -65,7 +65,7 @@ function App() {
           const foo:altsType = alts;
           const alt = foo[imageID as keyof altsType];
 
-          /* Image displaying with tag appearing above only on hover of image */
+          /* Image displaying with associated info from api on an organized Card object */
           return (
             <div key = {image.id} className = 'flex-wrap p-2 md:p-4'>
                 <div className='justify-items-center object-contain'>
