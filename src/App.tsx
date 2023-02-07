@@ -24,10 +24,10 @@ function App() {
   //Effect hook to query Pixabay API for 9 Cat image hits and add to images
   useEffect(() => {
     axios.get(
-      `https://pixabay.com/api/?key=${API_KEY}&q=cats&image_type=photo&per_page=9`
+      `https://pixabay.com/api/?key=${API_KEY}&q=cats&image_type=photo&per_page=9&orientation=vertical`
       ).then((res) => setImages(res.data.hits));
     }, []);
-
+  
   //State variable to set theme of app
   const [theme, setTheme] = useState(true);
 
@@ -59,7 +59,6 @@ function App() {
       >
         {/* Sequentially creating the image cards */}
         {images.map((image) => {
-
           //Grabs alt value from json file using image id as key
           const imageID = image.id + '';
           const foo:altsType = alts;

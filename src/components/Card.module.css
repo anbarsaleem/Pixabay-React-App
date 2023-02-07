@@ -16,7 +16,7 @@
 }
 
 .image {
-  @apply object-scale-down w-full h-full;
+  @apply object-cover w-80 h-80;
 }
 
 .textWrapper {
