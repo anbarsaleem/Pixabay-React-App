@@ -1,6 +1,6 @@
 /* Card styling */
 .wrapper {
-  @apply bg-gray-700 hover:bg-white shadow-xl hover:shadow-none cursor-pointer w-80 rounded-3xl flex flex-col items-center justify-center;
+  @apply bg-gray-700 drop-shadow-2xl hover:bg-gray-200 shadow-xl hover:shadow-none cursor-pointer w-80 rounded-3xl flex flex-col items-center justify-center;
 }
 
 .wrapperAnime {
@@ -36,15 +36,15 @@
 }
 
 .dangerBadge {
-  @apply h-7 w-20 flex items-center justify-center font-medium bg-white hover:bg-red-500 text-red-500 hover:text-white rounded-xl shadow-xl;
+  @apply h-7 w-20 flex items-center justify-center font-medium bg-gradient-to-t from-slate-600 to-slate-600  hover:from-red-500 hover:to-red-500 text-red-300 hover:text-white rounded-xl shadow-xl;
 }
 
 .primaryBadge {
-  @apply h-7 w-20 ml-2 bg-gray-100 hover:bg-blue-600 flex items-center justify-center font-medium text-blue-600 hover:text-white rounded-xl shadow-xl;
+  @apply h-7 w-20 ml-2 flex items-center justify-center font-medium bg-gradient-to-t from-slate-600 to-slate-600  hover:from-blue-600 hover:to-blue-600 text-blue-300 hover:text-white rounded-xl shadow-xl;
 }
 
 .infoBadge {
-  @apply h-7 w-9 flex items-center justify-center text-xl bg-white hover:bg-green-500 text-green-500 hover:text-white rounded-xl shadow-xl;
+  @apply h-7 w-9 flex items-center justify-center text-xl bg-gradient-to-t from-slate-600 to-slate-700 hover:from-green-500 hover:to-green-600 text-green-300 hover:text-white rounded-xl shadow-xl;
 }
 
 .counter {

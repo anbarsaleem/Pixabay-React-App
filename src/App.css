@@ -20,17 +20,17 @@
 /* Dark and Light Theme Styling using Tailwind Utilities*/
 /* Dark and Light Theme for Background and General Text */
 .dark {
-  @apply bg-slate-900 text-white  border-slate-900;
+  @apply bg-slate-900 text-white  border-slate-900 transition-all duration-700 ease-in-out;
 }
 .light {
-  @apply bg-slate-50 text-black border-slate-50;
+  @apply bg-slate-50 text-black border-slate-50 transition-all duration-700 ease-in-out;
 }
 
 /* Dark and Light Styling for Gallery Grid */
 .dark-gallery {
-  @apply bg-slate-800
+  @apply bg-slate-800 transition-all duration-700 ease-in-out;
 }
 .light-gallery {
-  @apply bg-slate-300
+  @apply bg-slate-300 transition-all duration-700 ease-in-out;
 }
 
