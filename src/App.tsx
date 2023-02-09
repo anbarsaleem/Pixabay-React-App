@@ -55,7 +55,7 @@ function App() {
 
       {/* Reactive gallery grid for images */}
       <div
-        className={`${theme ? 'dark-gallery' : 'light-gallery'} flex flex-wrap items-center justify-center h-auto gap-2 p-2 m-6 rounded-md`}
+        className={`${theme ? 'dark-gallery' : 'light-gallery'} relative flex flex-wrap items-center justify-center h-auto gap-2 p-2 m-6 rounded-md`}
       >
         {/* Sequentially creating the image cards */}
         {images.map((image) => {

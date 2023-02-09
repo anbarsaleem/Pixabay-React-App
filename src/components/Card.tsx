@@ -1,13 +1,16 @@
-import React from "react";
+import React, {useState, useEffect} from 'react';
 import classNames from "classnames";
 
 //Icon imports
 import { AiFillHeart } from "react-icons/ai";
 import { BsChatSquareFill } from "react-icons/bs";
-import { FaInfoCircle } from "react-icons/fa"; 
+import { FaInfoCircle } from "react-icons/fa";
+
 
 import styles from "./Card.module.css";
 import { group } from "console";
+
+import ToggleIcons from './ToggleIcons';
 
 //Set typing for card attributes
 type cardsType = {
@@ -22,8 +25,16 @@ type cardsType = {
 
 //Card creation
 const Card: React.FunctionComponent<cardsType> = ({ title, likes, comments, author, image, alt, pageURL }) => {
+  //State hook for if a card is focused to the center of the screen or not
+  const [focused, setFocused] = useState(false);
+
+  //Toggle function for card focus
+  function toggleFocus() {
+    setFocused(prevFocus => !prevFocus)
+  }
+  
   return (
-    <div className={classNames([styles.wrapper, styles.wrapperAnime, "group"])}>
+    <div className={classNames([focused ? styles.focused : '' , styles.wrapper, styles.wrapperAnime, "group"])}>
       <div className={styles.header}>
         <div className={styles.imageWrapper}>
           <img src={image} className={styles.image} alt={alt} tabIndex={0} />
@@ -64,6 +75,12 @@ const Card: React.FunctionComponent<cardsType> = ({ title, likes, comments, auth
             className={classNames([styles.infoBadge, styles.badgeAnime, styles.counter])}
           >
             <FaInfoCircle/>
+          </div>
+
+          <div
+            className={classNames([styles.focusBadge, styles.badgeAnime, styles.counter])}
+          >
+            <ToggleIcons focused={focused} toggleFocus={toggleFocus} />
           </div>
         </div>
       </div>
